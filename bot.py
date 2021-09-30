@@ -33,7 +33,8 @@ START_BUTTON = InlineKeyboardMarkup(
     InlineKeyboardButton("⭕️ Updates Channel ⭕️", url="https://t.me/MyTestBotZ")
   ]]
     
-@bot.on_message(filters.command(["start"]) & filters.private)
+
+@bot.on_message(filters.command('start') & filters.private)
 async def start(bot, message):
     await message.reply_text(
         text=START.format(message.from_user.mention),
