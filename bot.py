@@ -33,17 +33,13 @@ START_BUTTON = InlineKeyboardMarkup(
     InlineKeyboardButton("⭕️ Updates Channel ⭕️", url="https://t.me/MyTestBotZ")
   ]]
     
-@trojanz.on_message(filters.command(["start"]) & filters.private)
-async def start(client, message):
+@bot.on_message(filters.command(["start"]) & filters.private)
+async def start(bot, message):
     await message.reply_text(
-        text=Script.START_MSG.format(message.from_user.mention),
+        text=START.format(message.from_user.mention),
         disable_web_page_preview=True,
         reply_markup=InlineKeyboardMarkup(
             [
-                [
-                    InlineKeyboardButton("HELP", callback_data="help_data"),
-                    InlineKeyboardButton("ABOUT", callback_data="about_data"),
-                ],
                 [
                     InlineKeyboardButton(
                         "⭕️ JOIN OUR CHANNEL ⭕️", url="https://t.me/TroJanzHEX")
