@@ -33,17 +33,25 @@ START_BUTTON = InlineKeyboardMarkup(
     InlineKeyboardButton("⭕️ Updates Channel ⭕️", url="https://t.me/MyTestBotZ")
   ]]
     
-@bot.on_message(filters.command('start') & filters.private)
-async def start(bot, message):
-    await message.reply(
-      text=START,
-      reply_markup=START_BUTTONS,
-      disable_web_page_preview=True
+@trojanz.on_message(filters.command(["start"]) & filters.private)
+async def start(client, message):
+    await message.reply_text(
+        text=Script.START_MSG.format(message.from_user.mention),
+        disable_web_page_preview=True,
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton("HELP", callback_data="help_data"),
+                    InlineKeyboardButton("ABOUT", callback_data="about_data"),
+                ],
+                [
+                    InlineKeyboardButton(
+                        "⭕️ JOIN OUR CHANNEL ⭕️", url="https://t.me/TroJanzHEX")
+                ]
+            ]
+        ),
+        reply_to_message_id=message.message_id
     )
-      
-        #f"**𝗛𝗘𝗟𝗟𝗢🎈{message.chat.first_name}!**\n\n"
-        #"𝐈'𝐦 𝐚 𝐏𝐝𝐢𝐬𝐤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 𝐛𝐨𝐭. 𝐉𝐮𝐬𝐭 𝐬𝐞𝐧𝐝 𝐦𝐞 𝐥𝐢𝐧𝐤, 𝐟𝐢𝐥𝐞 𝐨𝐫 𝐅𝐮𝐥𝐥 𝐩𝐨𝐬𝐭...\𝐧\𝐧 𝐓𝐡𝐢𝐬 𝐛𝐨𝐭 𝐢𝐬 𝐦𝐚𝐝𝐞 𝐛𝐲 @ParitoshPky💖")
-
 
 @bot.on_message(filters.text & filters.private)
 async def pdisk_uploader(bot, message):
