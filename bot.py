@@ -3,6 +3,7 @@ import os
 from urllib.parse import urlparse
 import aiohttp
 from pyrogram import Client, filters
+from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton, Message 
 import requests
 from bs4 import BeautifulSoup
 import re
@@ -20,11 +21,28 @@ bot = Client('pdisk bot',
              sleep_threshold=0)
 
 
+START = """"**Hai ,
+A Simple PDsik Uploader Bot. It Can Upload Link To PDisk.
+
+Send Me Any Direct Link Or Video Link To Upload To PDisk. I Will Upload To PDisk And Give Direct Link
+
+Made With❤BY @MyTestBotZ**
+"""
+START_BUTTON = InlineKeyboardMarkup(
+  [[
+    InlineKeyboardButton("⭕️ Updates Channel ⭕️", url="https://t.me/MyTestBotZ")
+  ]]
+    
 @bot.on_message(filters.command('start') & filters.private)
 async def start(bot, message):
     await message.reply(
-        f"**𝗛𝗘𝗟𝗟𝗢🎈{message.chat.first_name}!**\n\n"
-        "𝐈'𝐦 𝐚 𝐏𝐝𝐢𝐬𝐤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 𝐛𝐨𝐭. 𝐉𝐮𝐬𝐭 𝐬𝐞𝐧𝐝 𝐦𝐞 𝐥𝐢𝐧𝐤, 𝐟𝐢𝐥𝐞 𝐨𝐫 𝐅𝐮𝐥𝐥 𝐩𝐨𝐬𝐭...\𝐧\𝐧 𝐓𝐡𝐢𝐬 𝐛𝐨𝐭 𝐢𝐬 𝐦𝐚𝐝𝐞 𝐛𝐲 @ParitoshPky💖")
+      text=START,
+      reply_markup=START_BUTTONS,
+      disable_web_page_preview=True
+    )
+      
+        #f"**𝗛𝗘𝗟𝗟𝗢🎈{message.chat.first_name}!**\n\n"
+        #"𝐈'𝐦 𝐚 𝐏𝐝𝐢𝐬𝐤 𝐔𝐩𝐥𝐨𝐚𝐝𝐞𝐫 𝐛𝐨𝐭. 𝐉𝐮𝐬𝐭 𝐬𝐞𝐧𝐝 𝐦𝐞 𝐥𝐢𝐧𝐤, 𝐟𝐢𝐥𝐞 𝐨𝐫 𝐅𝐮𝐥𝐥 𝐩𝐨𝐬𝐭...\𝐧\𝐧 𝐓𝐡𝐢𝐬 𝐛𝐨𝐭 𝐢𝐬 𝐦𝐚𝐝𝐞 𝐛𝐲 @ParitoshPky💖")
 
 
 @bot.on_message(filters.text & filters.private)
