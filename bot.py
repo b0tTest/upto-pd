@@ -7,11 +7,11 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-API_ID = environ.get('API_ID')
-API_HASH = environ.get('API_HASH')
+API_ID = environ.get('API_ID', '6')
+API_HASH = environ.get('API_HASH', 'eb06d4abfb49dc3eeb1aeb98ae0f581e')
 BOT_TOKEN = environ.get('BOT_TOKEN')
 PDISK_API_KEY = environ.get('PDISK_API_KEY')
-CHANNEL = environ.get('CHANNEL')
+CHANNEL = environ.get('CHANNEL', 'MyTestBotZ')
 bot = Client('pdisk bot',
              api_id=API_ID,
              api_hash=API_HASH,
