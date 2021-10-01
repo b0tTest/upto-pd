@@ -24,15 +24,21 @@ bot = Client('pdisk bot',
 START = """"**Hai ,
 A Simple PDsik Uploader Bot. It Can Upload Link To PDisk.
 
-Send Me Any Direct Link Or Video Link To Upload To PDisk. I Will Upload To PDisk And Give Direct Link
+Send Me Any Direct Link Or YouTube or Video Link I Will Upload To PDisk And Give Direct Link
 
 Made With❤BY @MyTestBotZ**
 """
-START_BUTTON = InlineKeyboardMarkup(
+SB = InlineKeyboardMarkup(
   [[
     InlineKeyboardButton("⭕️ Updates Channel ⭕️", url="https://t.me/MyTestBotZ")
+  ],[
+    InlineKeyboardButton("👨‍💻 Creator", url="https://t.me/OO7ROBOT"),
+    InlineKeyboardButton("🍿 OtherBots", url="https://telegram.me/mybotzlist")
   ]]
 )
+
+ 
+
   
   
 
@@ -41,14 +47,7 @@ async def start(bot, message):
     await message.reply_text(
         text=START.format(message.from_user.mention),
         disable_web_page_preview=True,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "⭕️ JOIN OUR CHANNEL ⭕️", url="https://t.me/TroJanzHEX")
-                ]
-            ]
-        ),
+        reply_markup=SB,
         reply_to_message_id=message.message_id
     )
 
