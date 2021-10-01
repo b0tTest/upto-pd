@@ -39,7 +39,8 @@ HELP = """**How to Use Me...
 
 
 ➠ **If you want Upload Telegram file,Videos to PDisk**
-✪ » First Send  any File to @Link4Filesbot to generate Direct Link
+
+✪ » First Send any File to <a href="https://telegram.me/Link4filesbot">@Link4Filesbot</a> to generate Direct Link
 ✪ » Copy Generated Link and Paste here...
 ✪ » Violaaaa.... Done 🥳🥳🥳🥳
 """
