@@ -13,6 +13,8 @@ API_HASH = environ.get('API_HASH')
 BOT_TOKEN = environ.get('BOT_TOKEN')
 PDISK_API_KEY = environ.get('PDISK_API_KEY')
 CHANNEL = environ.get('CHANNEL')
+THUMB_URL = environ.get('THUMB_URL', 'https://telegra.ph/file/1181d9119a13988dfe29c.jpg')
+
 bot = Client('pdisk bot',
              api_id=API_ID,
              api_hash=API_HASH,
@@ -95,7 +97,7 @@ async def about(bot, message):
         reply_markup=SB,
         reply_to_message_id=message.message_id
     )
-    
+###    
 @bot.on_message(filters.text & filters.private)
 async def pdisk_uploader(bot, message):
     new_string = str(message.text)
@@ -151,7 +153,7 @@ async def get_ptitle(url):
 
 
 async def pdisk_up(link):
-    if ('pdisk' in link or 'kuklink' in link or 'kofilink' in link or 'cofilink' in link or 'bit' in link):
+    if ('pdisk' in link or 'kuklink' in link or 'kofilink' in link or 'cofilink' in link or 'bit' in link or link in 'vdshort' or link in 'vidrivers'):
         res = await get_ptitle(link)
         title_pdisk = res[0]
         link = res[1]
@@ -160,7 +162,7 @@ async def pdisk_up(link):
         title_new = os.path.basename(title_new.path)
         title_pdisk = '@' + CHANNEL + title_new
     res = requests.get(
-        'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&api_key=' + PDISK_API_KEY + '&dir_id=0&title=' + title_pdisk + '&description=Join_' + CHANNEL + '_for_more_like_this')
+        'http://linkapi.net/open/create_item?link_type=link&content_src=' + link + '&source=2000&cover_url='+THUMB_URL+'&api_key=' + PDISK_API_KEY + '&dir_id=0&title=' + title_pdisk + '&description=Join_' + CHANNEL + '_for_more_like_this')
     data = res.json()
     data = dict(data)
     print(data)
@@ -199,6 +201,7 @@ async def multi_pdisk_up(ml_string):
 async def new_pdisk_url(urls):
     new_urls = []
     for i in urls:
+        time.sleep(0.2)
         new_urls.append(await pdisk_up(i))
     return new_urls
 
