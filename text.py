@@ -1,8 +1,12 @@
+from os import environ
+import os
+from urllib.parse import urlparse
+import aiohttp
 from pyrogram import Client, filters
-#from pyrogram import filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-import asyncio
-
+from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton, Message 
+import requests
+from bs4 import BeautifulSoup
+import re
 #class Text(object):
 START = """"**Hai👋 {} ,
 A Simple PDsik Uploader Bot. It Can Upload Link To PDisk.
