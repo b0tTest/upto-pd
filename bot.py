@@ -60,16 +60,34 @@ ABOUT = """➠ **My Name : PDisk Upload bot**
 """
 SB = InlineKeyboardMarkup(
   [[
-    InlineKeyboardButton("⭕️ Updates Channel ⭕️", url="https://t.me/MyTestBotZ")
+    InlineKeyboardButton("📡 Updates Channel", url="https://t.me/MyTestBotZ"),
+    InlineKeyboardButton("⚙️ Help", callback_data="help")
+  ],[
+    InlineKeyboardButton("🍿 Source Code 🍿", url="https://github.com/OO7ROBot/pdisk_uploader")
   ],[
     InlineKeyboardButton("👨‍💻 Creator", url="https://t.me/OO7ROBOT"),
-    InlineKeyboardButton("🍿BotsList", url="https://telegram.me/mybotzlist"),
+    InlineKeyboardButton("❣️BotsList", url="https://telegram.me/mybotzlist"),
     InlineKeyboardButton("⛔ Close", callback_data="close")
   ]]
 )
 
+HB = InlineKeyboardMarkup(
+  [[
+    InlineKeyboardButton("🏡 Home", callback_data="home"),
+    InlineKeyboardButton("📝 About", callback_data="about"),
+    InlineKeyboardButton("⛔ Close", callback_data="close")
+  ]]
+)
  
-
+AB = InlineKeyboardMarkup(
+  [[
+    InlineKeyboardButton("🍿 Source 🍿", url="https://github.com/OO7ROBot/pdisk_uploader")
+  ],[
+    InlineKeyboardButton("🏡 Home", callback_data="home"),
+    InlineKeyboardButton("⚙️ Help", callback_data="help"),
+    InlineKeyboardButton("⛔ Close", callback_data="close")
+  ]]
+)
   
   
 
@@ -111,13 +129,13 @@ async def cb_handler(bot, update):
     elif update.data == "help":
         await update.message.edit_text(
             text=HELP,
-            reply_markup=SB,
+            reply_markup=HB,
             disable_web_page_preview=True
         )
     elif update.data == "about":
         await update.message.edit_text(
             text=ABOUT.format(update.from_user.mention),
-            reply_markup=SB,
+            reply_markup=AB,
             disable_web_page_preview=True
         )
     else:
