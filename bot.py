@@ -262,6 +262,8 @@ async def remove_username(new_List):
 
 async def addFooter(str):
     footer = """
+
+Note : The Video File is Available on Above LINK ones Upload Process is Complete, So be Patient it Take Time Depend on Your File Size & My Server Upload Speed
 ━━━━━━━━━━━━━━━
 ⦿ Made With♥️BY @OO7ROBot
 ━━━━━━━━━━━━━━━
