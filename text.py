@@ -7,6 +7,11 @@ from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton, Message
 import requests
 from bs4 import BeautifulSoup
 import re
+API_ID = environ.get('API_ID')
+API_HASH = environ.get('API_HASH')
+BOT_TOKEN = environ.get('BOT_TOKEN')
+PDISK_API_KEY = environ.get('PDISK_API_KEY')
+CHANNEL = environ.get('CHANNEL')
 #class Text(object):
 START = """"**Hai👋 {} ,
 A Simple PDsik Uploader Bot. It Can Upload Link To PDisk.
