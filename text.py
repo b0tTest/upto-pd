@@ -1,16 +1,17 @@
-from pyrogram import Client as bot 
+from pyrogram import Client as bot
 from pyrogram import filters
-from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton, Message 
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+import asyncio
 
-class Text(object):
-    START = """"**Hai👋 {} ,
+#class Text(object):
+START = """"**Hai👋 {} ,
 A Simple PDsik Uploader Bot. It Can Upload Link To PDisk.
 Send Me Any Direct Link Or YouTube or Video Link I Will Upload To PDisk And Give Direct Pdisk Link
 /help for More detail
 Made With❤BY @MyTestBotZ**
 """
 
-    HELP = """**How to Use Me...
+HELP = """**How to Use Me...
 ⦿ Its Easy to Use me {} **
 ✪ » Send me Any Direct Link or YouTube Link
 ✪ »i will upload to PDisk & Give Link
@@ -20,7 +21,7 @@ Made With❤BY @MyTestBotZ**
 ✪ » Violaaaa.... Done 🥳🥳🥳🥳
 """
 
-    ABOUT = """➠ **My Name : PDisk Upload bot**
+ABOUT = """➠ **My Name : PDisk Upload bot**
 ➠ **Creator : <a href="https://telegram.dog/oo7robot">This Person</a>**
 ➠ Credits : <code>Everyone in this journey</code>
 ➠ Language : <code>Python3.9.6</code>
@@ -30,7 +31,8 @@ Made With❤BY @MyTestBotZ**
 ➠ Server : <b>Heroku</b>
 ➠ Build Status : <b>Stable V1</b>
 """
-    SB = InlineKeyboardMarkup(
+
+SB = InlineKeyboardMarkup(
       [[
         InlineKeyboardButton("⭕️ Updates Channel ⭕️", url="https://t.me/MyTestBotZ")
       ],[
