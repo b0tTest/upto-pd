@@ -100,7 +100,7 @@ async def about(bot, message):
         reply_to_message_id=message.message_id
     )
 ### ######## call back
-@Bot.on_callback_query()
+@bot.on_callback_query()
 async def cb_handler(bot, update):
     if update.data == "home":
         await update.message.edit_text(
