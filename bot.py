@@ -63,7 +63,8 @@ SB = InlineKeyboardMarkup(
     InlineKeyboardButton("⭕️ Updates Channel ⭕️", url="https://t.me/MyTestBotZ")
   ],[
     InlineKeyboardButton("👨‍💻 Creator", url="https://t.me/OO7ROBOT"),
-    InlineKeyboardButton("🍿 OtherBots", url="https://telegram.me/mybotzlist")
+    InlineKeyboardButton("🍿BotsList", url="https://telegram.me/mybotzlist"),
+    InlineKeyboardButton("⛔ Close", callback_data="close")
   ]]
 )
 
@@ -98,7 +99,31 @@ async def about(bot, message):
         reply_markup=SB,
         reply_to_message_id=message.message_id
     )
-###    
+### ######## call back
+@Bot.on_callback_query()
+async def cb_handler(bot, update):
+    if update.data == "home":
+        await update.message.edit_text(
+            text=START.format(update.from_user.mention),
+            reply_markup=SB,
+            disable_web_page_preview=True
+        )
+    elif update.data == "help":
+        await update.message.edit_text(
+            text=HELP,
+            reply_markup=SB,
+            disable_web_page_preview=True
+        )
+    elif update.data == "about":
+        await update.message.edit_text(
+            text=ABOUT.format(update.from_user.mention),
+            reply_markup=SB,
+            disable_web_page_preview=True
+        )
+    else:
+        await update.message.delete()
+
+        ###############
 @bot.on_message(filters.text & filters.private)
 async def pdisk_uploader(bot, message):
     new_string = str(message.text)
