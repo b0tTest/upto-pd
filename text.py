@@ -1,4 +1,5 @@
-from pyrogram import Client, filters
+from pyrogram import Client as bot 
+from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton, Message 
 
 class Text(object):
@@ -39,7 +40,7 @@ Made With❤BY @MyTestBotZ**
     )
 
  
-bot.on_message(filters.command('start') & filters.private)
+@bot.on_message(filters.command('start') & filters.private)
 async def start(bot, message):
     await message.reply_text(
         text=START.format(message.from_user.mention),
