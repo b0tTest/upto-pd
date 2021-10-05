@@ -1,5 +1,5 @@
-from pyrogram import Client as bot
-from pyrogram import filters
+from pyrogram import Client, filters
+#from pyrogram import filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 import asyncio
 
@@ -42,7 +42,7 @@ SB = InlineKeyboardMarkup(
     )
 
  
-@bot.on_message(filters.command('start') & filters.private)
+@Client.on_message(filters.command('start') & filters.private)
 async def start(bot, message):
     await message.reply_text(
         text=START.format(message.from_user.mention),
@@ -51,7 +51,7 @@ async def start(bot, message):
         reply_to_message_id=message.message_id
     )
 
-@bot.on_message(filters.command('help') & filters.private)
+@Client.on_message(filters.command('help') & filters.private)
 async def help(bot, message):
     await message.reply_text(
         text=HELP.format(message.from_user.mention),
@@ -60,7 +60,7 @@ async def help(bot, message):
         reply_to_message_id=message.message_id
     )
  
-@bot.on_message(filters.command('about') & filters.private)
+@Client.on_message(filters.command('about') & filters.private)
 async def about(bot, message):
     await message.reply_text(
         text=ABOUT.format(message.from_user.mention),
