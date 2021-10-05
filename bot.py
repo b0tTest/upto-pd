@@ -15,7 +15,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN')
 PDISK_API_KEY = environ.get('PDISK_API_KEY')
 CHANNEL = environ.get('CHANNEL')
 #THUMB_URL = environ.get('THUMB_URL', 'https://telegra.ph/file/1181d9119a13988dfe29c.jpg')
-THUMB_URL = environ.get('THUMB_URL')
+THUMB_URL = environ.get('THUMB_URL', '')
 
 
 
